@@ -3,7 +3,8 @@
 # Download the Data from here
 * data for repeating analysis: [Link](https://www.dropbox.com/scl/fo/6alk9qpg9ve50laiueq7a/AN9le17PWHdn7vRgb1_JRuI?rlkey=6eyk9ooxc4hjy2chuvqo68u14&st=v88yiftp&dl=0)
 
-* To repeat the cluster analysis in python
+* To repeat the cluster analysis in python (python >= 3.8)
+
 ```cd _script
 python stage1_cluster.py
 ```

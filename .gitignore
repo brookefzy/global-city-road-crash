@@ -1,2 +1,3 @@
 ./_data/*
 ./_graphic/*
+./_script/utils/__pycache__/*

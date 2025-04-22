@@ -19,10 +19,11 @@ def get_color_palette(n):
 
 
 DATA_FOLDER = "../_data/"
-GRAPHIC_PATH = "../_graphics/"
+GRAPHIC_PATH = "../_graphic/"
+os.makedirs(GRAPHIC_PATH, exist_ok=True)
 ## SET UP CONSTANTS
-RES = 9
-N_CAT = 27
+RES = 9  # this is the h3 index resolution
+N_CAT = 27  # this is the original categories of street view features (not all are used in the analysis)
 PREFIXFULL = "_built_environment"
 FILENAME_WITHIN = "c_seg_cat={N_CAT}_res={res}_withincity{prefixfull}_tsne.parquet"
 FILENAME_ORI_WITHIN = "c_seg_cat={N_CAT}_res={res}_withincity.parquet"
@@ -74,7 +75,7 @@ def plot_wss_kmean(data, N, comment):
     ax2.set_ylabel("Distorsion")
     ax2.set_title("The Elbow Method showing the optimal $K$")
     fig.savefig(
-        os.path.join(GRAPHIC_PATH, f"elbow_silhouette_volume_{N}_{comment}.png"),
+        os.path.join(GRAPHIC_PATH, f"elbow_silhouette_volume_{N}{comment}.png"),
         dpi=200,
         bbox_inches="tight",
     )
@@ -201,6 +202,7 @@ def plot_summary(df_ori_within, n, prefixfull):
         dpi=200,
         bbox_inches="tight",
     )
+    plt.close(fig)
 
 
 def main(prefixfull=PREFIXFULL):
@@ -214,3 +216,7 @@ def main(prefixfull=PREFIXFULL):
         print(f"Done plotting for cluster {n} with prefix {prefixfull}.")
     # plot the summary for all clusters
     print("Done plotting process.")
+
+
+if __name__ == "__main__":
+    main()
